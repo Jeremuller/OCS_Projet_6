@@ -1,0 +1,121 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    background-color: #61787F;
+    color: white;
+    text-align: center;
+    border: 1px color(black);
+    border: 1px solid black;
+    width: 837px;
+    height: 122px;
+}
+
+h2 {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-family: "Oswald";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 48px;
+    line-height: 71px;
+}
+
+h3 {
+    font-family: "Oswald";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 48px;
+    line-height: 71px;
+}
+
+p {
+    font-family: 'Oswald';
+    font-style: normal;
+    font-weight: 200;
+    font-size: 28px;
+    line-height: 41px;
+}
+
+
+.btn-custom {
+    border-radius: 25px;
+    gap: 10px;
+    width: 168px;
+    height: 66px;
+    background: #FA0B0B;
+}
+
+.col-4 {
+    position: relative;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+#genres img{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+
+.film-overlay {
+    position: absolute;
+    bottom: 55%;
+    left: 0;
+    right: 0;
+    height: 40%;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+ 
+h4 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+#genres .film-button {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    border: 2px solid white;
+    padding: 2px 4px;
+    gap: 10px;
+    font-size: 1rem;
+    width: 81px;
+    height: 25px;
+    border-radius: 25px;
+    font-family: 'Oswald';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 21px;
+    }
+
+#genres button:hover {
+    background-color: white;
+    color: black;
+}
+
+
+
+
+
+
+
+
+
