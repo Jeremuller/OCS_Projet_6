@@ -41,8 +41,9 @@ function getBestFilm() {
 }
 
 function getGenreFilms(genre) {
-    let usedApi = apiUrl + `/titles?sort_by=-imdb_score&genre=${genre}`;
-    console.log("Fetching " + usedApi);
+    let usedApi = apiUrl + `/titles?sort_by=-imdb_score&genre=${genre}&page_size=6`;
+    console.log(`Fetching films for genre: ${genre}`);
+
     fetch(usedApi)
         .then(response => {
             if (!response.ok) {
@@ -52,16 +53,27 @@ function getGenreFilms(genre) {
         })
         .then(data => {
             console.log("Data processed for genre " + genre + ": ", data);
-            const films = data.results.slice(0, 6);
+            const films = data.results;
 
-            for (let i = 0; i < films.length; i++) {
-                const film = films[i];
-                const filmTitleElement = document.querySelector(`#${genre} .film-overlay:nth-child(${i+1}) .film-title`);
-                const filmImageElement = document.querySelector(`#${genre} img:nth-child(${i +1})`);
+            const filmContainers = document.querySelectorAll(`#${genre} .col-4`)
 
-                filmTitleElement.textContent = film.title;
-                filmImageElement.src = film.image_url;
-            }
+            films.forEach((film, index) => {
+                if (index < filmContainers.length) {
+                    const filmContainer = filmContainers[index];
+                    const filmTitleElement = filmContainer.querySelector(".film-title");
+                    const filmImageElement = filmContainer.querySelector("img");
+                    
+                    if (filmTitleElement && filmImageElement) {
+                        filmTitleElement.textContent = film.title;
+                        filmImageElement.src = film.image_url;
+                    } else {
+                        console.error(`Title or image element not found for film index ${index} in genre ${genre}`);
+                    }    
+                } else {
+                    console.error(`Element not found for genre ${genre}, film index ${index}`)
+                }
+
+            }); 
         })    
         .catch(error => {
             console.error("Failed to get " + genre + " films' data");

@@ -56,6 +56,13 @@ p {
     position: relative;
     padding-left: 30px;
     padding-right: 30px;
+    padding-bottom: 30px;
+    padding-top: 30px;
+}
+
+.film-container {
+    position: relative;
+    width: 100%;
 }
 
 #genres img{
