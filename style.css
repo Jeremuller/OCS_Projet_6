@@ -17,6 +17,16 @@ header {
     height: 122px;
 }
 
+h1 {
+    padding-left: 60px;
+}
+
+header img {
+    padding: 15px;
+    min-width: 182px;
+    height: auto;
+}
+
 h2 {
     margin-top: 30px;
     margin-bottom: 30px;
@@ -25,6 +35,13 @@ h2 {
     font-weight: 600;
     font-size: 48px;
     line-height: 71px;
+}
+
+#best_film img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    max-height: 100%;
 }
 
 h3 {
@@ -67,7 +84,8 @@ p {
 
 #genres img{
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: cover;
     overflow: hidden;
 }
 
@@ -117,6 +135,16 @@ h4 {
     background-color: white;
     color: black;
 }
+
+.show-more-btn {
+    border-radius: 25px;
+    background: #FA0B0B;
+}
+
+
+
+
+
 
 
 

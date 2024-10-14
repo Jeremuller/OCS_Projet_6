@@ -14,27 +14,27 @@
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header class="container my-4 pt-3 pb-2 ps-4">
-        <div style="width: 150px">
-            <img src= "juststreamit_logo.png" alt="JustStreamIt logo" class="img-fluid"/>
+    <header class="container my-4 pt-3 pb-2 d-flex flex-column flex-md-row align-items-center justify-content-md-start justify-content-center">
+        <div class="text-center" style="width: 150px">
+            <img src= "juststreamit_logo.png" alt="JustStreamIt logo" class="img-fluid mx-auto"/>
         </div>
-        <div class="container ms-5 d-flex justify-content-start">
-            <h1>On demand videos</h1>
+        <div class="container ms-5-md-5 d-none d-md-flex justify-content-start">
+            <h1 class="d-none d-md-block">On demand videos</h1>
         </div>    
     </header>
 
     <main class="container">
         <section id="best_film">
             <h2>Best film</h2>
-            <div class="row px-2 py-2 border border-black border-4">
-                <div class="col-3">
+            <div class="row px-2 py-2 border border-black border-4 flex-column flex-md-row">
+                <div class="col-12 col-md-3 mb-3 mb-md-0 text-center text-md-start">
                     <img class="img-fluid" style="height: 334px;" src= "https://picsum.photos/id/237/200/300" alt= "Best film's image" />
                 </div>
-                <div class="col 9">
+                <div class="col-12 col-md-9">
                     <h3>Titre du film</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                    <div class="">
-                        <button class="btn btn-danger btn-lg float-end mb-4 me-3 btn-custom">Details</button>
+                    <div class="text-center text-md-end">
+                        <button id ="best-film-button"class="btn btn-danger btn-lg mb-4 me-3 btn-custom" data-id ="123" data-bs-toggle="modal" data-bs-target="#modal">Details</button>
                     </div>    
                 </div>
             </div>    
@@ -42,183 +42,192 @@
 
         <section id="genres">
 
-            <div id="mystery" class="container-fluid g-3 p-3">
+            <div id="mystery" class="container-fluid p-3">
                 <h2>Mystery</h2>
                 <div class="row">
-                    <div class="col-4">
+                    <div class="col-4 col-12 col-md-6 col-lg-4">
                         <div class="div film-container">
                             <img class="img-fluid" style="height: 334px;" src= "https://picsum.photos/id/237/200/300" alt= "Genre Mystery, first film\'s image" />
                             <div class="film-overlay">
                                 <div class="h4 film-title">Film Title 1</div>
-                                <button class="btn btn-outline-light film-button">Details</button>
+                                <button class="btn btn-outline-light film-button" data-bs-toggle="modal" data-bs-target="#modal">Details</button>
                             </div>
                         </div>    
                     </div>
-                    <div class="col-4">
+                    <div class="col-4 col-12 col-md-6 col-lg-4">
                         <div class="div film-container">
                             <img class="img-fluid" style="height: 334px;" src= "https://picsum.photos/id/237/200/300" alt= "Genre Mystery, second film\'s image" />        
                             <div class="film-overlay">
                                 <div class="h4 film-title">Film Title 2</div>
-                                <button class="btn btn-outline-light film-button">Details</button>
+                                <button class="btn btn-outline-light film-button" data-bs-toggle="modal" data-bs-target="#modal">Details</button>
                             </div>
                         </div>    
                     </div>
-                    <div class="col-4">
+                    <div class="col-4 col-12 col-md-6 col-lg-4 d-sm-none d-md-block hidden-mobile">
                         <div class="div film-container">
                             <img class="img-fluid" style="height: 334px;" src= "https://picsum.photos/id/237/200/300" alt= "Genre Mystery, third film\'s image" />
                             <div class="film-overlay">
                                 <div class="h4 film-title">Film Title 3</div>
-                                <button class="btn btn-outline-light film-button">Details</button>
+                                <button class="btn btn-outline-light film-button" data-bs-toggle="modal" data-bs-target="#modal">Details</button>
                             </div>
                         </div>    
                     </div>
-                    <div class="col-4">
+                    <div class="col-4 col-12 col-md-6 col-lg-4  d-sm-none d-md-block hidden-mobile">
                         <div class="div film-container">
                             <img class="img-fluid" style="height: 334px;" src= "https://picsum.photos/id/237/200/300" alt= "Genre Mystery, fourth film\'s image" />
                             <div class="film-overlay">
                                 <div class="h4 film-title">Film Title 4</div>
-                                <button class="btn btn-outline-light film-button">Details</button>
+                                <button class="btn btn-outline-light film-button" data-bs-toggle="modal" data-bs-target="#modal">Details</button>
                             </div>
                         </div>    
                     </div>
-                    <div class="col-4">
+                    <div class="col-4 col-12 col-md-6 col-lg-4 d-sm-none d-md-none d-lg-block hidden-tablette">
                         <div class="div film-container">
                             <img class="img-fluid" style="height: 334px;" src= "https://picsum.photos/id/237/200/300" alt= "Genre Mystery, fifth film\'s image" />
                             <div class="film-overlay">
                                 <div class="h4 film-title">Film Title 5</div>
-                                <button class="btn btn-outline-light film-button">Details</button>
+                                <button class="btn btn-outline-light film-button" data-bs-toggle="modal" data-bs-target="#modal">Details</button>
                             </div>
                         </div>    
                     </div>
-                    <div class="col-4">
+                    <div class="col-4 col-12 col-md-6 col-lg-4 d-sm-none d-md-none d-lg-block hidden-tablette">
                         <div class="div film-container">
                             <img class="img-fluid" style="height: 334px;" src= "https://picsum.photos/id/237/200/300" alt= "Genre Mystery, sixth film\'s image" />
                             <div class="film-overlay">
                                 <div class="h4 film-title">Film Title 6</div>
-                                <button class="btn btn-outline-light film-button">Details</button>
+                                <button class="btn btn-outline-light film-button" data-bs-toggle="modal" data-bs-target="#modal">Details</button>
                             </div>
-                        </div>    
-                    </div>     
+                        </div>  
+                    </div>
+                    <div class="show-more-container d-flex justify-content-center d-lg-none">
+                        <div class="btn btn-secondary px-5 show-more-btn">Show more</div>
+                    </div>       
                 </div>
             </div>    
 
             <div id="comedy" class="container-fluid g-3 p-3">
                 <h2>Comedy</h2>
                 <div class="row">
-                    <div class="col-4">
+                    <div class="col-4 col-12 col-md-6 col-lg-4">
                         <div class="div film-container">
                             <img class="img-fluid" style="height: 334px;" src= "https://picsum.photos/id/237/200/300" alt= "Genre Comedy, first film\'s image" />
                             <div class="film-overlay">
                                 <div class="h4 film-title">Film Title 1</div>
-                                <button class="btn btn-outline-light film-button">Details</button>
+                                <button class="btn btn-outline-light film-button" data-bs-toggle="modal" data-bs-target="#modal">Details</button>
                             </div>
                         </div>    
                     </div>
-                    <div class="col-4">
+                    <div class="col-4 col-12 col-md-6 col-lg-4">
                         <div class="div film-container">
                             <img class="img-fluid" style="height: 334px;" src= "https://picsum.photos/id/237/200/300" alt= "Genre Comedy, second film\'s image" />        
                             <div class="film-overlay">
                                 <div class="h4 film-title">Film Title 2</div>
-                                <button class="btn btn-outline-light film-button">Details</button>
+                                <button class="btn btn-outline-light film-button" data-bs-toggle="modal" data-bs-target="#modal">Details</button>
                             </div>
                         </div>    
                     </div>
-                    <div class="col-4">
-                        <div class="div film-container">
+                    <div class="col-4 col-12 col-md-6 col-lg-4">
+                        <div class="div film-container d-sm-none d-md-block hidden-mobile">
                             <img class="img-fluid" style="height: 334px;" src= "https://picsum.photos/id/237/200/300" alt= "Genre Comedy, third film\'s image" />
                             <div class="film-overlay">
                                 <div class="h4 film-title">Film Title 3</div>
-                                <button class="btn btn-outline-light film-button">Details</button>
+                                <button class="btn btn-outline-light film-button" data-bs-toggle="modal" data-bs-target="#modal">Details</button>
                             </div>
                         </div>    
                     </div>
-                    <div class="col-4">
-                        <div class="div film-container">
+                    <div class="col-4 col-12 col-md-6 col-lg-4">
+                        <div class="div film-container d-sm-none d-md-block hidden-mobile">
                             <img class="img-fluid" style="height: 334px;" src= "https://picsum.photos/id/237/200/300" alt= "Genre Comedy, fourth film\'s image" />
                             <div class="film-overlay">
                                 <div class="h4 film-title">Film Title 4</div>
-                                <button class="btn btn-outline-light film-button">Details</button>
+                                <button class="btn btn-outline-light film-button" data-bs-toggle="modal" data-bs-target="#modal">Details</button>
                             </div>
                         </div>    
                     </div>
-                    <div class="col-4">
-                        <div class="div film-container">
+                    <div class="col-4 col-12 col-md-6 col-lg-4">
+                        <div class="div film-container d-sm-none d-md-none d-lg-block hidden-tablette">
                             <img class="img-fluid" style="height: 334px;" src= "https://picsum.photos/id/237/200/300" alt= "Genre Comedy, fifth film\'s image" />
                             <div class="film-overlay">
                                 <div class="h4 film-title">Film Title 5</div>
-                                <button class="btn btn-outline-light film-button">Details</button>
+                                <button class="btn btn-outline-light film-button" data-bs-toggle="modal" data-bs-target="#modal">Details</button>
                             </div>
                         </div>    
                     </div>
-                    <div class="col-4">
-                        <div class="div film-container">
+                    <div class="col-4 col-12 col-md-6 col-lg-4">
+                        <div class="div film-container d-sm-none d-md-none d-lg-block hidden-tablette">
                             <img class="img-fluid" style="height: 334px;" src= "https://picsum.photos/id/237/200/300" alt= "Genre Comedy, sixth film\'s image" />
                             <div class="film-overlay">
                                 <div class="h4 film-title">Film Title 6</div>
-                                <button class="btn btn-outline-light film-button">Details</button>
+                                <button class="btn btn-outline-light film-button" data-bs-toggle="modal" data-bs-target="#modal">Details</button>
                             </div>
-                        </div>    
-                    </div>     
+                        </div>  
+                    </div>
+                    <div class="show-more-container d-flex justify-content-center d-lg-none">
+                        <div class="btn btn-secondary px-5 show-more-btn">Show more</div>
+                    </div>       
                 </div>
             </div>  
             
             <div id="action" class="container-fluid g-3 p-3">
                 <h2>Action</h2>
                 <div class="row">
-                    <div class="col-4">
+                    <div class="col-4 col-12 col-md-6 col-lg-4">
                         <div class="div film-container">
                             <img class="img-fluid" style="height: 334px;" src= "https://picsum.photos/id/237/200/300" alt= "Genre Action, first film\'s image" />
                             <div class="film-overlay">
                                 <div class="h4 film-title">Film Title 1</div>
-                                <button class="btn btn-outline-light film-button">Details</button>
+                                <button class="btn btn-outline-light film-button" data-bs-toggle="modal" data-bs-target="#modal">Details</button>
                             </div>
                         </div>    
                     </div>
-                    <div class="col-4">
+                    <div class="col-4 col-12 col-md-6 col-lg-4">
                         <div class="div film-container">
                             <img class="img-fluid" style="height: 334px;" src= "https://picsum.photos/id/237/200/300" alt= "Genre Action, second film\'s image" />        
                             <div class="film-overlay">
                                 <div class="h4 film-title">Film Title 2</div>
-                                <button class="btn btn-outline-light film-button">Details</button>
+                                <button class="btn btn-outline-light film-button" data-bs-toggle="modal" data-bs-target="#modal">Details</button>
                             </div>
                         </div>    
                     </div>
-                    <div class="col-4">
-                        <div class="div film-container">
+                    <div class="col-4 col-12 col-md-6 col-lg-4">
+                        <div class="div film-container d-sm-none d-md-block hidden-mobile">
                             <img class="img-fluid" style="height: 334px;" src= "https://picsum.photos/id/237/200/300" alt= "Genre Action, third film\'s image" />
                             <div class="film-overlay">
                                 <div class="h4 film-title">Film Title 3</div>
-                                <button class="btn btn-outline-light film-button">Details</button>
+                                <button class="btn btn-outline-light film-button" data-bs-toggle="modal" data-bs-target="#modal">Details</button>
                             </div>
                         </div>    
                     </div>
-                    <div class="col-4">
-                        <div class="div film-container">
+                    <div class="col-4 col-12 col-md-6 col-lg-4">
+                        <div class="div film-container d-sm-none d-md-block hidden-mobile">
                             <img class="img-fluid" style="height: 334px;" src= "https://picsum.photos/id/237/200/300" alt= "Genre Action, fourth film\'s image" />
                             <div class="film-overlay">
                                 <div class="h4 film-title">Film Title 4</div>
-                                <button class="btn btn-outline-light film-button">Details</button>
+                                <button class="btn btn-outline-light film-button" data-bs-toggle="modal" data-bs-target="#modal">Details</button>
                             </div>
                         </div>    
                     </div>
-                    <div class="col-4">
-                        <div class="div film-container">
+                    <div class="col-4 col-12 col-md-6 col-lg-4">
+                        <div class="div film-container d-sm-none d-md-none d-lg-block hidden-tablette">
                             <img class="img-fluid" style="height: 334px;" src= "https://picsum.photos/id/237/200/300" alt= "Genre Action, fifth film\'s image" />
                             <div class="film-overlay">
                                 <div class="h4 film-title">Film Title 5</div>
-                                <button class="btn btn-outline-light film-button">Details</button>
+                                <button class="btn btn-outline-light film-button" data-bs-toggle="modal" data-bs-target="#modal">Details</button>
                             </div>
                         </div>    
                     </div>
-                    <div class="col-4">
-                        <div class="div film-container">
+                    <div class="col-4 col-12 col-md-6 col-lg-4">
+                        <div class="div film-container d-sm-none d-md-none d-lg-block hidden-tablette">
                             <img class="img-fluid" style="height: 334px;" src= "https://picsum.photos/id/237/200/300" alt= "Genre Action, sixth film\'s image" />
                             <div class="film-overlay">
                                 <div class="h4 film-title">Film Title 6</div>
-                                <button class="btn btn-outline-light film-button">Details</button>
+                                <button class="btn btn-outline-light film-button" data-bs-toggle="modal" data-bs-target="#modal">Details</button>
                             </div>
-                        </div>    
-                    </div>     
+                        </div> 
+                    </div>
+                    <div class="show-more-container mt-1 d-flex justify-content-center d-lg-none">
+                        <div class="btn btn-secondary px-5 show-more-btn">Show more</div>
+                    </div>       
                 </div>
             </div>  
 
@@ -229,6 +238,39 @@
                 </article>
             </div>
         </section>
+        <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="filmModal" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                    <div class="container row modalFilmInfos">
+                        <div class="container col-7">
+                            <p><span id="modalFilmTitle">Film title</span></p>
+                            <p><span id="film-year">Year</span> - <span id="film-genres">Genres</span></p>
+                            <p><span id="parental-accord">Parental Accord</span> - <span id="film-duration">Time</span><span id="film-languages"> Languages</span></p>
+                            <p>IMDB score: <span id="imdb-score">Score</span></p>
+                            <p><span id="film-director">Director</span></p>
+                        </div>
+                        <div class="container col-5">
+                            <img class=" modalFilmImage img-fluid d-none d-lg-block" src="https://picsum.photos/id/237/200/300" alt="This is the film's image">
+                        </div>      
+                    </div>
+                    <button type="button" class="close d-lg-none" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <p><span id="filmDescription"></span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione itaque vero cupiditate, exercitationem, mollitia dolorem ad libero et harum porro alias officia laborum minus suscipit sapiente dolore, veniam reiciendis quis.</p>
+                        <img class="img-fluid modalFilmImage d-lg-none" src="https://picsum.photos/id/237/200/300" alt="This is the film's image">
+                        <p><span id="filmActors">Actors</span></p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary d-none d-lg-block" data-bs-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+        </div>
     </main>
     <script src="script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
