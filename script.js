@@ -44,11 +44,12 @@ function getBestFilm() {
         });
 }
 
-function getGenreFilms(genre) {
+function getGenreFilms(genre, containerId = `#${genre}`) {
     let usedApi = apiUrl + `/titles?sort_by=-imdb_score&genre=${genre}&page_size=6`;
     console.log(`Fetching films for genre: ${genre}`);
+    console.log(`API URL: ${usedApi}`);
 
-    fetch(usedApi)
+    return fetch(usedApi)
         .then(response => {
             if (!response.ok) {
                 throw new Error("Network response was not ok " + response.statusText);
@@ -59,21 +60,25 @@ function getGenreFilms(genre) {
             console.log("Data processed for genre " + genre + ": ", data);
             const films = data.results;
 
-            const filmContainers = document.querySelectorAll(`#${genre} .col-4`)
+            const filmContainers = document.querySelectorAll(`${containerId} .col-4`)
+
 
             films.forEach((film, index) => {
                 if (index < filmContainers.length) {
                     const filmContainer = filmContainers[index];
                     const filmTitleElement = filmContainer.querySelector(".film-title");
                     const filmImageElement = filmContainer.querySelector("img");
+                    const detailsButtonElement = filmContainer.querySelector(".film-button");
                     
-                    if (filmTitleElement && filmImageElement) {
+                    if (filmTitleElement && filmImageElement && detailsButtonElement) {
                         filmTitleElement.innerText = film.title;
+                        detailsButtonElement.setAttribute("data-id", film.id);
                         filmImageElement.src = film.image_url;
                         filmImageElement.onerror = function() {
                             filmImageElement.src = "https://picsum.photos/200/300";
                         };
                     } else {
+                        filmContainer.classList.add("d-none")
                         console.error(`Title or image element not found for film index ${index} in genre ${genre}`);
                     }    
                 } else {
@@ -106,18 +111,61 @@ function getModalElements(filmId) {
             document.getElementById("film-year").textContent = filmDetails.year;
             document.getElementById("film-genres").textContent = filmDetails.genres.join(", ");
             document.getElementById("parental-accord").textContent = filmDetails.parental_guidance;
-            document.getElementById("film-duration").textContent = filmDetails.duration;
+            document.getElementById("film-duration").textContent = filmDetails.duration + (" min");
             document.getElementById("film-languages").textContent = filmDetails.languages.join(", ");
-            document.getElementById("imdb-score").textContent = filmDetails.imdb_score;
-            document.getElementById("film-director").textContent = ("Directed by: ") + filmDetails.director;
+            document.getElementById("imdb-score").textContent = ("IMDB score: ") + filmDetails.imdb_score;
+            document.getElementById("film-director").textContent = filmDetails.directors;
             document.getElementById("filmDescription").textContent = filmDetails.description;
-            document.getElementById("filmActors").textContent = ("With: ") + filmDetails.actors.join(", ");
+            document.getElementById("filmActors").textContent = filmDetails.actors.join(", ");
 
             const modalImageElement = document.querySelector(".modalFilmImage");
             modalImageElement.src = filmDetails.image_url;
+            modalImageElement.onerror = function() {
+                modalImageElement.src = "https://picsum.photos/200/300";
+            };
+            const littleModalFilmImageElement = document.querySelector(".littleModalFilmImage");
+            littleModalFilmImageElement.src = filmDetails.image_url;
+            littleModalFilmImageElement.onerror = function() {
+                littleModalFilmImageElement.src = "https://picsum.photos/200/300";
+            };
         })
         .catch(error => {
             console.error("Failed to fetch film details:", error);
+        });
+}
+
+function getCategoriesList() {
+    const usedApi = apiUrl + "/genres?page_size=25";
+    const excludedCategories = ["Action", "Mystery", "Comedy"];
+    const selectElement = document.querySelector("select");
+
+    console.log("Fetching for film's categories.");
+
+    fetch(usedApi)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Network response was not ok" + response.statusText);
+            }
+            return response.json();
+    })
+    
+        .then(data => {
+            console.log(data);    
+
+            const categories = data.results;
+
+            const filteredCategories = categories.filter(category => !excludedCategories.includes(category.name)
+            );
+
+            filteredCategories.forEach((category, index) => {
+                const optionElement = document.createElement("option");
+                optionElement.value = index + 1;
+                optionElement.textContent = category.name;
+                selectElement.appendChild(optionElement);
+            });
+        })
+        .catch(error => {
+            console.error("There has been a problem with your fetch operation:", error);    
         });
 }
 
@@ -166,7 +214,21 @@ detailButtons.forEach(button => {
     });    
 });
 
+document.querySelector("#categorieSelection").addEventListener("change", function(event) {
+    const selectedOption = event.target.options[event.target.selectedIndex].textContent;
+    const otherContainer = document.getElementById("other-category");
+    getGenreFilms(selectedOption, "#other-category")
+        .then(() => { 
+            console.log(selectedOption);
+            otherContainer.classList.remove("d-none");
+        })    
+        .catch(error => {
+            console.error("An error occurred while fetching or displaying films:", error);
+        });
+});
+
 getBestFilm();
 getGenreFilms('mystery');
 getGenreFilms('action');
 getGenreFilms('comedy');
+getCategoriesList();
